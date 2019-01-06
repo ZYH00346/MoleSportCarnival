@@ -36,7 +36,6 @@
             this.timenotice = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.player = new System.Windows.Forms.Label();
-            this.NPC = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.start = new System.Windows.Forms.Button();
             this.pause = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.score1 = new System.Windows.Forms.Label();
             this.score2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.NPC = new System.Windows.Forms.Label();
             this.ball = new System.Windows.Forms.PictureBox();
             this.edge3 = new System.Windows.Forms.PictureBox();
             this.edge4 = new System.Windows.Forms.PictureBox();
@@ -52,6 +52,7 @@
             this.edge2 = new System.Windows.Forms.PictureBox();
             this.edge1 = new System.Windows.Forms.PictureBox();
             this.gamescene = new System.Windows.Forms.PictureBox();
+            this.help = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.edge3)).BeginInit();
@@ -66,10 +67,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(595, 46);
+            this.label3.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Location = new System.Drawing.Point(583, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 22);
+            this.label3.Size = new System.Drawing.Size(135, 22);
             this.label3.TabIndex = 1;
             this.label3.Text = "player\'s point";
             // 
@@ -77,7 +79,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("新細明體", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(700, 88);
+            this.label1.Location = new System.Drawing.Point(700, 217);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 54);
             this.label1.TabIndex = 3;
@@ -86,40 +88,42 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(724, 46);
+            this.label2.Font = new System.Drawing.Font("新細明體", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label2.ForeColor = System.Drawing.Color.Blue;
+            this.label2.Location = new System.Drawing.Point(738, 171);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 22);
+            this.label2.Size = new System.Drawing.Size(128, 22);
             this.label2.TabIndex = 4;
             this.label2.Text = "NPC\'s  point";
             // 
             // result
             // 
             this.result.BackColor = System.Drawing.Color.White;
-            this.result.Font = new System.Drawing.Font("新細明體", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.result.Location = new System.Drawing.Point(599, 190);
+            this.result.Font = new System.Drawing.Font("新細明體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.result.Location = new System.Drawing.Point(587, 299);
             this.result.Multiline = true;
             this.result.Name = "result";
             this.result.ReadOnly = true;
-            this.result.Size = new System.Drawing.Size(241, 57);
+            this.result.Size = new System.Drawing.Size(267, 48);
             this.result.TabIndex = 6;
+            this.result.Text = "let\'s start a game";
             this.result.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // timenotice
             // 
             this.timenotice.AutoSize = true;
-            this.timenotice.Font = new System.Drawing.Font("新細明體", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.timenotice.Location = new System.Drawing.Point(689, 317);
+            this.timenotice.Font = new System.Drawing.Font("標楷體", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.timenotice.Location = new System.Drawing.Point(658, 90);
             this.timenotice.Name = "timenotice";
-            this.timenotice.Size = new System.Drawing.Size(79, 43);
+            this.timenotice.Size = new System.Drawing.Size(124, 64);
             this.timenotice.TabIndex = 7;
             this.timenotice.Text = "300";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("新細明體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(656, 263);
+            this.label4.Font = new System.Drawing.Font("標楷體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Location = new System.Drawing.Point(646, 33);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(143, 32);
             this.label4.TabIndex = 8;
@@ -130,24 +134,12 @@
             this.player.BackColor = System.Drawing.Color.Black;
             this.player.Font = new System.Drawing.Font("新細明體", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.player.ForeColor = System.Drawing.Color.White;
-            this.player.Location = new System.Drawing.Point(248, 561);
+            this.player.Location = new System.Drawing.Point(257, 547);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(90, 40);
             this.player.TabIndex = 18;
             this.player.Text = "player";
             this.player.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // NPC
-            // 
-            this.NPC.BackColor = System.Drawing.Color.Black;
-            this.NPC.Font = new System.Drawing.Font("新細明體", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.NPC.ForeColor = System.Drawing.Color.White;
-            this.NPC.Location = new System.Drawing.Point(248, 63);
-            this.NPC.Name = "NPC";
-            this.NPC.Size = new System.Drawing.Size(90, 40);
-            this.NPC.TabIndex = 19;
-            this.NPC.Text = "NPC";
-            this.NPC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timer1
             // 
@@ -168,7 +160,7 @@
             // pause
             // 
             this.pause.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.pause.Location = new System.Drawing.Point(595, 456);
+            this.pause.Location = new System.Drawing.Point(595, 519);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(142, 59);
             this.pause.TabIndex = 21;
@@ -179,7 +171,7 @@
             // exit
             // 
             this.exit.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.exit.Location = new System.Drawing.Point(595, 537);
+            this.exit.Location = new System.Drawing.Point(595, 595);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(142, 50);
             this.exit.TabIndex = 22;
@@ -190,20 +182,22 @@
             // score1
             // 
             this.score1.AutoSize = true;
-            this.score1.Font = new System.Drawing.Font("新細明體", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.score1.Location = new System.Drawing.Point(625, 88);
+            this.score1.Font = new System.Drawing.Font("新細明體", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.score1.ForeColor = System.Drawing.Color.Red;
+            this.score1.Location = new System.Drawing.Point(614, 217);
             this.score1.Name = "score1";
-            this.score1.Size = new System.Drawing.Size(58, 64);
+            this.score1.Size = new System.Drawing.Size(59, 64);
             this.score1.TabIndex = 23;
             this.score1.Text = "0";
             // 
             // score2
             // 
             this.score2.AutoSize = true;
-            this.score2.Font = new System.Drawing.Font("新細明體", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.score2.Location = new System.Drawing.Point(756, 88);
+            this.score2.Font = new System.Drawing.Font("新細明體", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.score2.ForeColor = System.Drawing.Color.Blue;
+            this.score2.Location = new System.Drawing.Point(760, 217);
             this.score2.Name = "score2";
-            this.score2.Size = new System.Drawing.Size(58, 64);
+            this.score2.Size = new System.Drawing.Size(59, 64);
             this.score2.TabIndex = 24;
             this.score2.Text = "0";
             // 
@@ -216,6 +210,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
+            // 
+            // NPC
+            // 
+            this.NPC.BackColor = System.Drawing.Color.Transparent;
+            this.NPC.Font = new System.Drawing.Font("新細明體", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.NPC.ForeColor = System.Drawing.Color.White;
+            this.NPC.Image = global::sportCarnival.Properties.Resources.npc1;
+            this.NPC.Location = new System.Drawing.Point(257, 42);
+            this.NPC.Name = "NPC";
+            this.NPC.Size = new System.Drawing.Size(72, 72);
+            this.NPC.TabIndex = 19;
+            this.NPC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ball
             // 
@@ -292,11 +298,23 @@
             this.gamescene.TabIndex = 0;
             this.gamescene.TabStop = false;
             // 
+            // help
+            // 
+            this.help.Font = new System.Drawing.Font("標楷體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.help.Location = new System.Drawing.Point(598, 452);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(139, 52);
+            this.help.TabIndex = 26;
+            this.help.Text = "help";
+            this.help.UseVisualStyleBackColor = true;
+            this.help.Click += new System.EventHandler(this.button1_Click);
+            // 
             // HockeyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(866, 645);
+            this.Controls.Add(this.help);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.score2);
             this.Controls.Add(this.score1);
@@ -363,5 +381,6 @@
         private System.Windows.Forms.Label score1;
         private System.Windows.Forms.Label score2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button help;
     }
 }

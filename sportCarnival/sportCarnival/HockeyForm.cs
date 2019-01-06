@@ -85,6 +85,7 @@ namespace sportCarnival
         {
             timer1.Enabled = true ;
             start.Enabled = false ;
+            help.Enabled = false; 
             score_n = 0;
             score_p = 0 ;
             time_count = 300 ;
@@ -94,18 +95,29 @@ namespace sportCarnival
             pause.Enabled = true;
             result.Clear(); 
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            result.Text = "Use WASD to move";
+            result.BackColor = Color.White;
+            result.ForeColor = Color.Black; 
+        }
         private void pause_Click(object sender, EventArgs e)
         {
             if (playing)
             {
                 timer1.Stop();
                 playing = false;
+                help.Enabled = true; 
                 pause.Text = "Countinue";
+                result.Text = "Timeout";
+                result.BackColor = Color.White; 
+                result.ForeColor = Color.Black; 
             }
             else
             {
                 timer1.Start();
                 playing = true;
+                help.Enabled = false; 
                 pause.Text = "Pause";
                 result.Clear();
                 result.BackColor = Color.White;
@@ -120,6 +132,9 @@ namespace sportCarnival
             this.Visible = false;
             timer1.Stop();
             init(0);
+            result.Text = "Let's start a game";
+            result.BackColor = Color.White;
+            result.ForeColor = Color.Black; 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -132,9 +147,10 @@ namespace sportCarnival
             }
             ++ count;  
             
-            //calculate the center of ball
-            int ball_center = ball.Left + (ball.Width / 2) ; 
-            
+            //calculate the center of ball and npc
+            int ball_center = ball.Left + (ball.Width / 2) ;
+            int NPC_center = NPC.Left + (NPC.Width / 2); 
+             
             //update the scoreboard
             score1.Text = score_p.ToString();
             score2.Text = score_n.ToString();
@@ -156,6 +172,11 @@ namespace sportCarnival
             else
                 player.Top += 3* (y_positive - y_negative);
 
+            //control NPC's move
+            if (NPC_center < ball_center)
+                NPC.Left += 3;
+            else if (NPC_center > ball_center)
+                NPC.Left -= 3; 
             //control the move of ball
             ball.Top  += y_speed;
             ball.Left += x_speed;
@@ -174,13 +195,13 @@ namespace sportCarnival
             }
 
             //deal with  the collision between NPC and ball
-            if ((ball.Top < NPC.Bottom) && (ball.Top > NPC.Top) &&(ball_center > NPC.Left) && (ball_center < NPC.Right))
+            if ((ball.Top < NPC.Bottom) && (ball.Top > NPC.Top) &&(ball_center >= NPC.Left) && (ball_center <= NPC.Right))
             {
                 if (y_speed < 0)
                     y_speed = -y_speed;
 
             }
-            if ((ball.Bottom > NPC.Top) && (ball.Bottom < NPC.Top) &&(ball_center > NPC.Left) && (ball_center < NPC.Right))
+            if ((ball.Bottom > NPC.Top) && (ball.Bottom < NPC.Top) &&(ball_center >= NPC.Left) && (ball_center <=  NPC.Right))
             {
                 if (y_speed > 0)
                     y_speed = -y_speed;
@@ -226,7 +247,9 @@ namespace sportCarnival
             if (i == 0)
             {
                 ball.Left = 277;
-                ball.Top  = 286; 
+                ball.Top  = 286;
+                NPC.Left = 248;
+                NPC.Top = 50;
                 y_speed = 3;
             }
             else
@@ -249,6 +272,7 @@ namespace sportCarnival
              NPC.Top     = 50  ;
              timer1.Stop();
              playing = false;
+             help.Enabled = true; 
              pause.Text = "Countinue";
             }
             int temp = rnd.Next(-3, 3);
@@ -258,6 +282,9 @@ namespace sportCarnival
             }
             x_speed = temp;
         }
+
+       
+
         void check(int i , int j , int t)
         {
             if(i >= 7)
